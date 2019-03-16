@@ -1,21 +1,31 @@
-var express = require('express');
-var https = require('https');
-var router = express.Router();
+let express = require('express');
+let https = require('https');
+let router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {
-    title: 'Fail Engine'
-  });
+
+  let url = '';
 
   https.get('https://failengine.com/api/happiness', (resp) => {
     resp.on('data', (data) => {
       console.log("hello??");
-      console.log(JSON.parse(data));
+      console.log(JSON.parse(data).mp4);
+      url = JSON.parse(data).mp4;
+      console.log(url);
+
+      res.render('index', {
+        title: 'Fail Engine',
+        url: url
+      });
+
+
     });
   }).on("error", (err) => {
     console.log("Error: " + err.message);
   });
+
+
 
 });
 
