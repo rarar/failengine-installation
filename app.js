@@ -1,12 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+let indexRouter = require('./routes/index');
 
-var app = express();
+let app = express();
+let server = require('http').Server(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +26,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -36,4 +38,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app:app, server:server};

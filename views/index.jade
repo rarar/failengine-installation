@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  video#video(autoplay loop)
+  video#video(autoplay loop muted)
       source(src=''+url, type='video/mp4')
+  div
+    h1#face :)
