@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px Helvetica, Arial, sans-serif;
+  background: black;
 }
 
 #video {
@@ -27,8 +28,7 @@ div {
 
 h1 {
   position: absolute;
-  transform: rotate(90deg);
-  left: 32%;
-  bottom: -40%;
+  left: 20%;
+  bottom: -52%;
   font-size: 20em;
 }
